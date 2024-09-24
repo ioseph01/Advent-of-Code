@@ -3,8 +3,8 @@ import math
 
 def fun(race):
     # better function
-    z = ((race[0] ** 2) - 4 * race[1]) ** .5
-    a = ((-race[0] + z) / -2) 
+    
+    a = ((-race[0] + (z := ((race[0] ** 2) - 4 * race[1]) ** .5)) / -2) 
     b = ((-race[0] - z) / -2)
 
     if a % 1 != 0 or b % 1 != 0:
