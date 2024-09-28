@@ -5,30 +5,20 @@ table = {(k := entry.strip("=").split())[0] : (k[2][1:4], k[3][:3]) for entry in
 
 currents = [[entry, 0] for entry in table if entry.find("A") != -1]
 directionToIdx = {"L" : 0, "R" : 1}
-allZ = False
+result = []
 
-
-while not allZ:
+while len(currents) > 0:
     
     for direction in path:
-        if allZ:
-            break
         
-        allZ = True
-
-        for current in range(len(currents)):
-            if currents[current][0].find("Z") == -1:
-                
-                currents[current] = [table[currents[current][0] ][directionToIdx[direction]], currents[current][1] + 1]
+        if currents[0][0].find("Z") == -1:
+            currents[0] = [table[currents[0][0]][directionToIdx[direction]], currents[0][1] + 1]
             
-            if currents[current][0].find("Z") == -1:
-                allZ = False
+        else:
+            result.append(currents.pop(0)[1])
+            break
+            
                   
-
-result = 1
-
-for current in currents:
-    result = math.lcm(result, current[1])
-print(result)
+print(math.lcm(*result))
 
 
