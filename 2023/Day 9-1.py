@@ -1,6 +1,5 @@
 
 table = [line.split(" ") for line in open("f.txt").read().split("\n")]
-
 result = 0
 
 for x in table:
@@ -13,10 +12,6 @@ for x in table:
     for l in reversed(range(len(differences) - 1)):
         difference = int(differences[l][-1]) + difference
     
-
     result += difference
-
-
-
 
 print(result)
